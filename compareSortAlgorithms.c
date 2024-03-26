@@ -218,7 +218,7 @@ int main(void) {
         int *pDataSrc, *pDataCopy;
         int dataSz = parseData(fileNames[i], &pDataSrc);
 
-        if (dataSz <= 0) // If the file is empty or can't be read, skip to the next file.
+        if (dataSz <= 0) // If the file is empty or can't be read it skips to the next file.
             continue;
 
         pDataCopy = (int *)Alloc(sizeof(int) * dataSz);
@@ -239,14 +239,14 @@ int main(void) {
         printf("\textra memory allocated\t: %d\n", extraMemoryAllocated);
         printArray(pDataCopy, dataSz);
 
-        // Repeat for other sorting algorithms...
+
 
         // Heap Sort
         printf("Heap Sort:\n");
         memcpy(pDataCopy, pDataSrc, dataSz * sizeof(int));
         extraMemoryAllocated = 0;
         start = clock();
-        heapSort(pDataCopy, dataSz); // Corrected the call to heapSort.
+        heapSort(pDataCopy, dataSz); // corrected the call to heapSort.
         end = clock();
         cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
         printf("\truntime\t\t\t: %.1lf\n", cpu_time_used);
